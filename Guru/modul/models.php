@@ -501,7 +501,31 @@ elseif (isset($_POST['essayEdit'])) {
 
 
   }
-  // simpan tugas
+  // simpan nilai
+  elseif (isset($_POST['tugasSaveNilai'])) {
+
+	$sql = mysqli_query($con,"INSERT INTO tb_nilai VALUES(NULL,'$_POST[id_siswa]','$_POST[id_guru]','$_POST[id_mapel]','$_POST[id_semester]','$_POST[id_kelas]','$_POST[id_jurusan]','$_POST[nilai]' ) ");
+	if ($sql) {
+			echo "
+		  <script type='text/javascript'>
+		  setTimeout(function () {
+		  swal({
+		  title: 'Sukses',
+		  text:  'Tugas Ditambahkan!',
+		  type: 'success',
+		  timer: 3000,
+		  showConfirmButton: true
+		  });     
+		  },10);  
+		  window.setTimeout(function(){ 
+		  window.location.replace('?page=nilai');
+		  } ,3000);   
+	  </script>";
+	}
+
+
+} 
+// simpan tugas
   elseif (isset($_POST['tugasSave'])) {
 
   	$sql = mysqli_query($con,"INSERT INTO tb_tugas VALUES(NULL,'$_POST[id_jenis]','$_POST[judul]','$_POST[isi_tugas]','$_POST[tgl]','$_POST[waktu]','$_POST[jumlahanggota]','$_POST[id_guru]','$_POST[id_mapel]','$_POST[id_semester]' ) ");

@@ -28,18 +28,100 @@ if($tujian < 1){
   ?>
   
 <h4>DAFTAR NILAI</h4>
+<br>
+  <?php
+	$data_guru_siswa = mysqli_query($mysqli, "
+		SELECT 
+			tb_guru.nik as nik,
+			tb_guru.nama_guru as nama_guru,
+			tb_siswa.nis as nis,
+			tb_siswa.nama_siswa as nama_siswa,
+			tb_master_kelas.kelas as kelas,
+			tb_master_jurusan.jurusan as jurusan
+		FROM
+			tb_nilai
+		INNER JOIN
+			tb_guru
+		ON
+			tb_guru.id_guru = tb_nilai.id_guru
+		INNER JOIN
+			tb_siswa
+		ON
+			tb_siswa.id_siswa = tb_nilai.id_siswa
+		INNER JOIN
+			tb_master_kelas
+		ON
+			tb_master_kelas.id_kelas = tb_nilai.id_kelas
+		INNER JOIN
+			tb_master_jurusan
+		ON
+			tb_master_jurusan.id_jurusan = tb_nilai.id_jurusan
+		WHERE
+			tb_nilai.id_siswa = '$_SESSION[id_siswa]'	
+	");
+
+	while($data = mysqli_fetch_array($data_guru_siswa)){
+  ?>
+	<span> Nama Guru : <?php echo $data['nik']; ?> -  <?php echo $data['nama_guru']; ?> </span> <br>
+	<span> Nama Siswa : <?php echo $data['nis']; ?> -  <?php echo $data['nama_siswa']; ?> - Kelas <?php echo $data['kelas']; ?> <?php echo $data['jurusan']; ?></span>
+  <?php		
+	}
+  ?>
+<br>
+<br>
   <table class="table table-striped table-hover">
     <thead>
       <tr>
+		<!--
         <th>No</th>
         <th>Judul</th>
         <th>Pelajaran</th>
         <th>Jenis Ujian</th>
         <th>Aksi</th>
+		-->
+        <th>No</th>
+        <th>Pelajaran</th>
+        <th>Semester</th>
+        <th>Nilai</th>
       </tr>
     </thead>
     <tbody>
-    <?php 
+    <?php
+	$data_nilai = mysqli_query($mysqli, "
+		SELECT 
+			tb_siswa.id_siswa as id_siswa,
+			tb_master_mapel.mapel as mapel,
+			tb_master_semester.semester as semester,
+			tb_nilai.nilai as nilai
+		FROM
+			tb_nilai
+		INNER JOIN
+			tb_siswa
+		ON
+			tb_siswa.id_siswa = tb_nilai.id_siswa
+		INNER JOIN
+			tb_master_mapel
+		ON
+			tb_master_mapel.id_mapel = tb_nilai.id_mapel
+		INNER JOIN
+			tb_master_semester
+		ON
+			tb_master_semester.id_semester = tb_nilai.id_semester
+		WHERE
+			tb_nilai.id_siswa = '$_SESSION[id_siswa]'	
+	");
+	$no = 1;
+	while($nilai = mysqli_fetch_array($data_nilai)){
+	?>
+		<tr>
+			<td><?php $no++; ?></td>
+			<td><?php echo $nilai['mapel']; ?></td>
+			<td><?php echo $nilai['semester']; ?></td>
+			<td><?php echo $nilai['nilai']; ?></td>
+		</tr>
+	<?php
+	}
+	/* 
        $qujian = mysqli_query($mysqli, "SELECT * FROM kelas_ujian 
       INNER JOIN tb_master_kelas ON kelas_ujian.id_kelas=tb_master_kelas.id_kelas
       INNER JOIN tb_master_jurusan ON kelas_ujian.id_jurusan=tb_master_jurusan.id_jurusan
@@ -138,6 +220,7 @@ if($tujian < 1){
      </tr>
     <?php
      }
+	 */
      ?>
     </tbody>
   </table>
