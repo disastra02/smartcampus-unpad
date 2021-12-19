@@ -4,7 +4,7 @@
 $host ="localhost";
 $user ="root";
 $pass = "";
-$db= "learning";
+$db= "smartcampus-unpad";
 
 $con = new mysqli($host,$user,$pass,$db) or die(mysqli_error($con));
 

@@ -54,7 +54,8 @@ $apl = mysqli_fetch_array($sekolah);
   <!-- inject:css -->
   <link rel="stylesheet" href="../vendor/css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../vendor/images/favicon.png" />
+  <!-- <link rel="shortcut icon" href="../vendor/images/favicon.png" /> -->
+  <link rel="icon" href="../vendor/images/favicon.png">
    <link href="../vendor/sweetalert/sweetalert.css" rel="stylesheet" />
   <script type="text/javascript" src="../vendor/ckeditor/ckeditor.js"></script>
   <link rel="stylesheet" type="text/css" href="../vendor/css/jquery.dataTables.css">
@@ -77,6 +78,18 @@ $apl = mysqli_fetch_array($sekolah);
         background: #232323;
       }
 
+      .navbar .navbar-brand-wrapper .navbar-brand:hover {
+        color: #FFF;
+      }
+
+      .navbar {
+        background: #F5A00E !important;
+      }
+
+      .logo-text:hover {
+        color: #FFF;
+      }
+
     </style>
 </head>
 
@@ -86,9 +99,9 @@ $apl = mysqli_fetch_array($sekolah);
   <div class="container-scroller">
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-      <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center" style="background-color: #1991eb;">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center" style="background-color: #F5A00E;">
         <a class="navbar-brand brand-logo" href="index.php" style="font-family:Aegyptus;font-weight: bold;font-size: 30px;">
-          <img src="../vendor/images/<?=$apl['logo'];?>" alt="logo" style="height: 45px;width: 45px;border-radius: 10px;"> <b><?=$apl['textlogo'];?></b>
+          <img src="../vendor/images/<?=$apl['logo'];?>" alt="logo" style="height: 45px;width: 54px; margin-bottom: 7px; border-radius: 10px;"> <b class="logo-text"><?=$apl['textlogo'];?></b>
         </a>
         <a class="navbar-brand brand-logo-mini" href="index.php">
           <!-- <img src="../vendor/images/logo.png" alt="logo"/> -->
@@ -103,7 +116,7 @@ $apl = mysqli_fetch_array($sekolah);
             	<b><?=$apl['nama_sekolah'];?></b></a>
           </li>
         </ul>
-        <ul class="navbar-nav navbar-nav-right" style="border-top-left-radius:50px;color: black;border-bottom-left-radius:50px;color: #fff;border:1px dashed #00BCD4; ">
+        <ul class="navbar-nav navbar-nav-right" style="border-top-left-radius:50px;color: black;border-bottom-left-radius:50px;color: #fff; ">
           <?php          // tampilakan notifikasi ujian 
           $ujian = mysqli_query($con,"SELECT * FROM ujian
           INNER JOIN tb_master_mapel ON ujian.id_mapel=tb_master_mapel.id_mapel
@@ -147,7 +160,7 @@ $apl = mysqli_fetch_array($sekolah);
           </li>
             <li class="nav-item d-none d-lg-block">
             <a class="nav-link" href="?page=profil">              
-              <b>My Profile</b>
+              <b style="margin-right: 10px;">My Profile</b>
                <img class="img-xs rounded-circle" src="../vendor/images/img_Guru/<?=$data['foto']; ?>" alt="">
             </a>
           </li>

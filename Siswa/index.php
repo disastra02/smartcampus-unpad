@@ -58,7 +58,18 @@ $apl = mysqli_fetch_array($sekolah);
     
     </script>
     
+    <style>
+      .navbar .navbar-brand-wrapper .navbar-brand:hover {
+        color: #FFF;
+      }
 
+      .navbar {
+        background: #F5A00E !important;
+      }
+      .logo-text:hover {
+        color: #FFF;
+      }
+    </style>
 
 </head>
 
@@ -68,9 +79,9 @@ $apl = mysqli_fetch_array($sekolah);
   <div class="container-scroller">
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-      <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center" style="background-color: #1991eb;">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center" style="background-color: #F5A00E;">
         <a class="navbar-brand brand-logo" href="index.php" style="font-family:Aegyptus;font-weight: bold;font-size: 30px;">
-          <img src="../vendor/images/<?=$apl['logo'];?>" alt="logo" style="height: 45px;width: 45px;border-radius: 10px;"> <b><?=$apl['textlogo'];?></b>
+          <img src="../vendor/images/<?=$apl['logo'];?>" alt="logo" style="height: 45px;width: 54px; margin-bottom: 7px; border-radius: 10px;"> <b class="logo-text"><?=$apl['textlogo'];?></b>
         </a>
         <a class="navbar-brand brand-logo-mini" href="index.php">
           <!-- <img src="../vendor/images/logo.png" alt="logo"/> -->

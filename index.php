@@ -41,16 +41,22 @@ $oke1 = mysqli_fetch_array($oke);
   <link rel="stylesheet" href="vendor/css/style.css">
   <!-- endinject -->
    <link href="vendor/sweetalert/sweetalert.css" rel="stylesheet" />
+
+   <style>
+     .wrap-login100 {
+       background: #53a9eab5 !important;
+     }
+   </style>
 </head>
-<body style="background-image:url(vendor/images/bhg.jpg);jpg);background-size:cover;">
+<body style="background-image:url(vendor/images/bhg.jpg);background-size:cover;">
 	
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('vendor/login/images/bg.jpg');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-			 <center><img src="vendor/images/favicon.png" alt="" height="100" width="100"></center><br>
+			 <center><img src="vendor/images/logo_login.png" alt=""></center><br>
 				<form method="post" action="" class="login100-form validate-form">
 					<span class="login100-form-title p-b-49">
-						E-LEARNING AMYEDU
+						E-LEARNING UNPAD
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
@@ -76,9 +82,9 @@ $oke1 = mysqli_fetch_array($oke);
 					</div>
 					
 					<div class="text-right p-t-8 p-b-31">
-						<a href="https://wa.me/6281385094206">
+						<!-- <a href="https://wa.me/6281385094206">
 							Forgot password?
-						</a>
+						</a> -->
 					</div>
 					
 					<div class="container-login100-form-btn m-b-23">
@@ -90,14 +96,14 @@ $oke1 = mysqli_fetch_array($oke);
 						</div>
 					</div>
 
-					<div class="container-login100-form-btn">
+					<!-- <div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 							<button value="daftar_elearning" type="submit" class="login100-form-btn" onclick="window.location.href='Home/Registrasion.php'">
 								Daftar Akun Siswa?
 							</button>
 						</div>
-					</div>
+					</div> -->
 				</form>
 				<?php
 

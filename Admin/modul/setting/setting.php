@@ -31,7 +31,7 @@ foreach ($sql as $d) ?>
                 <input type="text" id="nama" name="nmsekolah" class="form-control" value="<?php echo $d['nama_sekolah']; ?>">
               </div>
                <div class="form-group">
-                <label for="kepsek">Nama Kepala Sekolah</label>
+                <label for="kepsek">Nama Pimpinan</label>
                 <input type="text" id="kepsek" name="kepsek" class="form-control" value="<?php echo $d['kepsek']; ?>">
               </div>
                 <div class="form-group">
